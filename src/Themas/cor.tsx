@@ -1,11 +1,15 @@
 export const Cores = {
   white: "#ffffff",
   blue: "#5295e2",
+  blueLight:"#afd3f7",
+  iconBackground: "#edf4fc",
   green: "#a7e068",
+  greenLight: "#91cda7",
   orange:"#f4a82c",
+  orangeLight:"#e7a986",
   fundo: "#f3f7f9",
   titleCard:"#3a3a3a",
-  descritionCard:"#adadad",
+  descritionCard:"#8a6565ff",
   base:"#f4f7f9",
   texto: "#333",
 };

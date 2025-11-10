@@ -1,17 +1,15 @@
-import { StatusBar } from "expo-status-bar";
+import { router } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import Header from "../components/header";
-import Card from "../components/card";
-import CardMenu from "../components/cardMenu";
-import { Cores } from "../Themas/cor";
+import Card from "../src/components/card";
+import CardMenu from "../src/components/cardMenu";
+import Header from "../src/components/header";
+import { Cores } from "../src/Themas/cor";
 
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <StatusBar style="dark" /> 
-      <Header />
+      <Header title="Home" func={() => {}} icon="menu" />
       <Text style={styles.text}>Tarefas</Text>
       <View style={styles.containerCards}>
         <Card title="pendente" count={8} color={Cores.orange }/>
@@ -21,8 +19,17 @@ export default function HomeScreen() {
       <Text style={styles.text}>Acesso rapido</Text>
       <View style={styles.gridContainer}>
         <View style={styles.lineContainer}>
-          <CardMenu title="LUPs" count="Lição de um ponto" icons="light-bulb"/>
-          <CardMenu title="MIUTs" count="Manutenção industrial" icons="briefcase"/>
+          <CardMenu 
+            title="LUPs" 
+            count="Lição de um ponto" 
+            icons="light-bulb"
+            press={()=>{router.push("/lups")}}
+          />
+          <CardMenu 
+            title="MIUTs"
+            count="Manutenção industrial" icons="briefcase"
+            press={()=>router.push('/miut')}
+          />
         </View>
         <View style={styles.lineContainer}>
           <CardMenu title="Paradas" count="Codigos de paradas" icons="square-circle"/>
@@ -43,10 +50,11 @@ export default function HomeScreen() {
 } 
 const styles =  StyleSheet.create({
   container: {
+    width: "100%",
+    height: "100%",
     backgroundColor: Cores.fundo,
     paddingHorizontal: 10,
-    paddingTop: 50,
-    justifyContent: "center",
+    paddingTop: 10, 
 
   },
   text:{
@@ -60,16 +68,18 @@ const styles =  StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    gap: 5,
+ 
   },
   gridContainer: {
-    width: "100%",
-    justifyContent: "space-between",
+    width:"100%",
     gap: 6,
   },
   lineContainer: {
     flexDirection: "row",
+    justifyContent:"center",
+    alignItems:'center',
     width: "100%",
-    gap: 10,
+    columnGap: 10,
+    paddingHorizontal:5,
   },
 });

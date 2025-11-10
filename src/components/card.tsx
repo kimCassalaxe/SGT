@@ -1,7 +1,4 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import Header from "../components/header";
+import { StyleSheet, Text, TouchableOpacity} from "react-native";
 import { Cores } from "../Themas/cor";
 
 type Props = {
@@ -12,7 +9,6 @@ type Props = {
 export default function Card(pro: Props) {
   return (
     <>
-
       <TouchableOpacity style={styles.container}>
         <Text style={[styles.textTitle, pro.color ? { color: pro.color } : {}]}>{pro.title}</Text>
         <Text style={styles.textCount}>{pro.count}</Text>
@@ -24,12 +20,12 @@ export default function Card(pro: Props) {
 const styles =  StyleSheet.create({
   container: {
     borderRadius: 10,
-    borderColor: "#ddd",
-    borderWidth: 1,
+    borderColor: "#ccc",
+    borderWidth: .3,
     backgroundColor:Cores.white,
     paddingHorizontal: 10,
     paddingVertical: 20,
-    rowGap :10,
+    rowGap :5,
   },
   textTitle: {
     fontSize: 16,
