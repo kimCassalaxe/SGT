@@ -37,7 +37,11 @@ export default function HomeScreen() {
             count="Codigos de paradas" icons="square-circle"
             press={()=>router.push('/codigoParada')}
           />
-        <CardMenu title="Tarefas" count="Todas as tarefas" icons="check-circle"/>
+        <CardMenu 
+          title="Tarefas" 
+          count="Todas as tarefas" icons="check-circle"
+          press={()=>router.push('/Tarefas')}
+        />
         </View>
         <View style={styles.lineContainer}>
           <CardMenu title="Chat" count="Mensagens da Equipe" icons="report"/>
@@ -58,7 +62,7 @@ const styles =  StyleSheet.create({
     height: "100%",
     backgroundColor: Cores.fundo,
     paddingHorizontal: 10,
-    paddingTop: 10, 
+    paddingTop: 50, 
 
   },
   text:{
