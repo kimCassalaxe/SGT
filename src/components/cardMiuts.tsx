@@ -7,7 +7,7 @@ type Props = {
   descr: string;
   color?: string;
   icons?: any;
-  func: any;
+  func?: any;
 }
 export default function CardMiuts(pro: Props) {
 

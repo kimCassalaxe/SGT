@@ -4,6 +4,7 @@ export const Cores = {
   blueLight:"#afd3f7",
   iconBackground: "#edf4fc",
   green: "#a7e068",
+  gray: "#b9b9b9ff",
   greenLight: "#91cda7",
   orange:"#f4a82c",
   orangeLight:"#e7a986",

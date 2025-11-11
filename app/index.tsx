@@ -32,7 +32,11 @@ export default function HomeScreen() {
           />
         </View>
         <View style={styles.lineContainer}>
-          <CardMenu title="Paradas" count="Codigos de paradas" icons="square-circle"/>
+          <CardMenu 
+            title="Paradas" 
+            count="Codigos de paradas" icons="square-circle"
+            press={()=>router.push('/codigoParada')}
+          />
         <CardMenu title="Tarefas" count="Todas as tarefas" icons="check-circle"/>
         </View>
         <View style={styles.lineContainer}>

@@ -12,3 +12,7 @@ export type lups = {
   descricao: string;
   passos:[{ordem:number; texto:string; foto:string;}];
 }
+export type Category = {
+  id: number;
+  categoria: string;
+}
