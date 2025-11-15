@@ -4,9 +4,20 @@ import Card from "../src/components/card";
 import CardMenu from "../src/components/cardMenu";
 import Header from "../src/components/header";
 import { Cores } from "../src/Themas/cor";
+import { useEffect } from "react";
+import { initDB } from "@/src/db/init";
+import { useCodigoParada } from "@/src/db/useCodigoParada";
 
 
 export default function HomeScreen() {
+  const {fetchCodigoParada} = useCodigoParada();
+  useEffect(()=>{
+    const load = async () => {
+    await initDB();
+    fetchCodigoParada().then(res=>console.log(res));
+    };
+    load(); 
+  },[]);
   return (
     <View style={styles.container}>
       <Header title="Home" func={() => {}} icon="menu" />

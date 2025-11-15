@@ -12,9 +12,22 @@ export type lups = {
   descricao: string;
   passos:[{ordem:number; texto:string; foto:string;}];
 }
-export type Category = {
+export type codigoParada ={
+  codigo: string;
+  nome: string;
+}
+export type CategoriaCodigoParada = {
+  codigo:number;
+  nome:string;
+  categoria:string;
+}
+export type CodigoParadaComposto ={
+  codigo: codigoParada[];
+  categoria:string;
+}
+export type Categoria = {
   id: number;
-  categoria: string;
+  nome: string;
 }
 export type Status={
   feito:string;

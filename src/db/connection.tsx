@@ -1,6 +1,6 @@
  import * as SQLite from 'expo-sqlite';
 
- //a conexao comeca com nul
+ //a conexao comeca com null
  let db: SQLite.SQLiteDatabase | null = null;
 
 export async function getDb() {

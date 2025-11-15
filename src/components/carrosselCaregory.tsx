@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Cores } from "../Themas/cor";
-import { Category } from "../type";
+import { Categoria} from "../type";
 import { Ionicons } from "@expo/vector-icons";
 
 type Props = {
-  data: Category[];
+  data: Categoria[];
   icon?: any;
 }
 export default function CarrosselCaregory(pro: Props) {
@@ -32,7 +32,7 @@ export default function CarrosselCaregory(pro: Props) {
               ]}
             >
               <Text style={[styles.text, isSelected && { color: Cores.blue, fontWeight: "bold" }]}>
-                {item.categoria}
+                {item.nome}
               </Text>
               {isSelected ? <Ionicons name="close" size={20} color={Cores.blue} /> : null}
             </TouchableOpacity>

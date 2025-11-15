@@ -5,10 +5,10 @@ import Header from "@/src/components/header";
 import { router} from "expo-router";
 import SearchInput from "@/src/components/searchInput";
 import CarrosselCaregory from "@/src/components/carrosselCaregory";
-import { Category } from "@/src/type";
 import CardTarefa from "@/src/components/cardTarefa";
 import StatusModal from "@/src/components/modalStatus"; 
-import { Status } from '../src/type';
+import { Categoria } from "@/src/type";
+
 function handleSelect(value: string, setStatus: (status:string)=>void, setVisibleModal: (visible:boolean)=>void) {
     setStatus(value);
     setVisibleModal(false);
@@ -22,10 +22,10 @@ export default function TarefaScreen() {
   const [visibleModal, setVisibleModal] = useState(false);  
   const [status,setStatus] = useState("");
   const lista = [1,2,3,4,5,6,7];
-  const categorias: Category[] = [
-  { id: 1, categoria: "A fazer" },
-  { id: 2, categoria: "Feito" },
-  { id: 3, categoria: "Em curso" },
+  const categorias: Categoria[] = [
+  { id: 1, nome: "A fazer" },
+  { id: 2, nome: "Feito" },
+  { id: 3, nome: "Em curso" },
 ];
 
   function handleSelect(value:string) {
