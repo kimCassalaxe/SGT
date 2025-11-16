@@ -4,10 +4,11 @@ import { Cores } from "../src/Themas/cor";
 import Header from "@/src/components/header";
 import { router} from "expo-router";
 import SearchInput from "@/src/components/searchInput";
-import CarrosselCaregory from "@/src/components/carrosselCaregory";
 import CardTarefa from "@/src/components/cardTarefa";
 import StatusModal from "@/src/components/modalStatus"; 
 import { Categoria } from "@/src/type";
+import CarrosselStatus from "@/src/components/carrosselStatus";
+import { Style } from "@/src/Themas/templatBase";
 
 function handleSelect(value: string, setStatus: (status:string)=>void, setVisibleModal: (visible:boolean)=>void) {
     setStatus(value);
@@ -20,7 +21,7 @@ function handleSelect(value: string, setStatus: (status:string)=>void, setVisibl
 export default function TarefaScreen() {
   const [search, setSearch] = useState("");
   const [visibleModal, setVisibleModal] = useState(false);  
-  const [status,setStatus] = useState("");
+  const [status,setStatus]= useState<string|null>(null);
   const lista = [1,2,3,4,5,6,7];
   const categorias: Categoria[] = [
   { id: 1, nome: "A fazer" },
@@ -32,11 +33,11 @@ export default function TarefaScreen() {
     setStatus(value);   // ✅ recebe o estado selecionado do modal
   }
   return (
-    <View style={styles.container}>
+    <View style={[Style.container,styles.container]}>
       
       <Header icon="arrow-back" title="Lista de Tarefas"  func={()=>router.back()}/>
       <SearchInput search={search} setSearch={setSearch} />
-      <CarrosselCaregory data={categorias} />
+      <CarrosselStatus onSelect={index=>setStatus(index)} data={categorias} />
       <FlatList
         data={lista}
         style={{marginBottom: 100}}
@@ -46,7 +47,7 @@ export default function TarefaScreen() {
           data="10 Agosto 2025"
           title="Limpar Razeiras"
           userName="Carla Silva"
-          estado={status}
+          estado={'feito'}
           longPress={() => setVisibleModal(true)}
           />}
 
@@ -70,6 +71,7 @@ const styles =  StyleSheet.create({
     paddingTop: 50,
     justifyContent: "center",
     gap: 20,
+    
   },
    text:{
     fontSize: 18,

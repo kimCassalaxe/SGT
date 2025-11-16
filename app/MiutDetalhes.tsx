@@ -4,23 +4,30 @@ import Header from "@/src/components/header";
 import { router, useLocalSearchParams } from "expo-router";
 import CardMiutsDescription from "@/src/components/cardMiutsDescription";
 import CardMiutsPassos from "@/src/components/cardMiutspassos";
+import { Style } from "@/src/Themas/templatBase";
+import { Milt } from '../src/type';
 
 function getLups(id:number){
   console.log(id)
 }
 export default function MiutDetalhesScreen() {
-  const {id} = useLocalSearchParams();
-  const lista = [1,2,3,4,5,6,7];
+  const {milt} = useLocalSearchParams();
+  console.log(milt);
+  const miltStr = Array.isArray(milt) ? milt[0] : milt;
+  const miltDet = JSON.parse(miltStr);
+  console.log("===================");
+  console.log(miltDet);
+  const passos = miltDet.passos;
   return (
-    <View style={styles.container}>
+    <View style={[Style.container,styles.container]}>
       <Header icon="arrow-back" title="Detalhes da MIUT"  func={()=>router.back()}/>
-      <CardMiutsDescription title="Mntagem de Equipamento AZ-800" cod="MIUT-008" data="10 Agosto 2024" />
+      <CardMiutsDescription title={miltDet.nome} cod={miltDet.descricao} data="10 Agosto 2024" />
       <Text style={styles.texto}>Passos do Procedimento</Text>
       <FlatList
-        data={lista}
+        data={passos}
 
         renderItem={(i)=>
-          <CardMiutsPassos id={i.index} text="cortar o cabos"/>}
+          <CardMiutsPassos id={i.item.numero} text={i.item.texto} />}
 
       />
     </View>
@@ -30,11 +37,6 @@ export default function MiutDetalhesScreen() {
 } 
 const styles =  StyleSheet.create({
   container: {
-    width: "100%",
-    backgroundColor: Cores.fundo,
-    paddingHorizontal: 10,
-    paddingVertical: 50,
-    justifyContent: "center",
     gap: 10,
   },
   textTitle:{

@@ -34,3 +34,23 @@ export type Status={
   emCurso:string;
   afazer:string;
 }
+export type MiltPassos={
+  id:number;
+  id_milt:number;
+  numero:number;
+  texto:string;
+}
+
+export type MiltBd={
+  id:number;
+  nome:string;
+  descricao:string;
+  frequencia:string;
+}
+export type Milt={
+  id:number;
+  nome:string;
+  descricao:string;
+  passos:MiltPassos[];
+  frequencia:string;
+}

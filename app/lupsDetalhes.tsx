@@ -4,6 +4,7 @@ import Header from "@/src/components/header";
 import { router, useLocalSearchParams } from "expo-router";
 import CardLups from "@/src/components/cardLups";
 import CardLupsPassos from "@/src/components/cardLupspassos";
+import { Style } from "@/src/Themas/templatBase";
 
 function getLups(id:number){
   console.log(id)
@@ -12,7 +13,7 @@ export default function LupsDetalhesScreen() {
   const {id} = useLocalSearchParams();
   const lista = [1,2,3,4,5,6,7];
   return (
-    <View style={styles.container}>
+    <View style={[Style.container,styles.container]}>
       <Header icon="arrow-back" title="Detalhes da LUPs"  func={()=>router.back()}/>
       
       <Text style={styles.title}>{'Processo de Limpeza das Maquinas'}  </Text>
@@ -36,12 +37,7 @@ export default function LupsDetalhesScreen() {
 } 
 const styles =  StyleSheet.create({
   container: {
-    width: "100%",
-    backgroundColor: Cores.fundo,
-    paddingHorizontal: 10,
-    paddingVertical: 50,
-  
-    justifyContent: "center",
+
     gap: 10,
   },
   title:{

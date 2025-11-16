@@ -62,7 +62,7 @@ export default function CodigoParadaScreen() {
       <SearchInput search={search} setSearch={setSearch} />
       <CarrosselCaregory onSelect={index=>{setCatSearch(index)}} data={categorias} />
       {lista.length == 0?
-      <Text>Não existe nenhuma paragem com esta descrição</Text>
+      <Text >Não existe nenhuma paragem com esta descrição</Text>
       :
       <FlatList
         data={lista}
@@ -82,12 +82,6 @@ export default function CodigoParadaScreen() {
 } 
 const styles =  StyleSheet.create({
   container: {
-    width: "100%",
-    height:"100%",
-    backgroundColor: Cores.fundo,
-    paddingHorizontal: 10,
-    paddingTop: 50,
-    justifyContent: "center",
     gap: 20,
   },
    text:{

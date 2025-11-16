@@ -31,6 +31,7 @@ export default function LupsScreen() {
 const styles =  StyleSheet.create({
   container: {
     width: "100%",
+    height:"100%",
     backgroundColor: Cores.fundo,
     paddingHorizontal: 10,
     paddingTop: 50,
