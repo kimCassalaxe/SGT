@@ -7,6 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 type Props = {
   data: Categoria[];
   icon?: any;
+  onSelect:(nome:string|null)=> void;
 }
 export default function CarrosselCaregory(pro: Props) {
   const [selectedId, setSelectedId] = useState<number | null>(null);
@@ -22,7 +23,19 @@ export default function CarrosselCaregory(pro: Props) {
           const isSelected = selectedId === item.id;
           return (
             <TouchableOpacity 
-              onPress={() => setSelectedId(item.id)}
+              onPress={() => {
+                //verifica se a categoria que foi clic ja esta marcada. Se ja, desmarca se nao volta a marcar
+                if(selectedId && (selectedId === item.id)){
+                  setSelectedId(null);
+                  pro.onSelect(null)
+                  console.log('clico2');
+                }else{
+                  setSelectedId(item.id);
+                  pro.onSelect(item.nome);
+                  console.log('clico1');
+                }
+
+              }}
               style={[
                 styles.container,
                 isSelected && {
