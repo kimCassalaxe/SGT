@@ -15,7 +15,7 @@ export default function CardLupsPassos(pro: Props) {
     <View style={styles.container}>
       <Text style={styles.textNumber}>{pro.id}</Text>
       <View >
-        <Image source={{uri:pro.img}} resizeMode="cover"/>
+        <Image source={require('../assets/img/test.png')} resizeMode="cover" style={styles.img}/>
         <Text style={styles.textTitle}>{pro.title}</Text>
         <Text style={styles.text}>{pro.text}</Text>
     </View>
@@ -58,5 +58,8 @@ const styles =  StyleSheet.create({
     alignSelf:"flex-start",
     fontSize:16,
     color: Cores.texto,
-  },
+  },img:{
+    width:"100%",
+    height:"",
+  }
 });

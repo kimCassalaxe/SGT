@@ -5,16 +5,18 @@ import { getDb } from "./connection";
 
 export function useCodigoParada() {
   async function fetchCodigoParada(){
+      console.log("11100000000000000000000000")
   try {
+    
     const db = await getDb();
-     // Buscar categorias
+    // Buscar categorias
     const resultCat:Categoria[]|null= await db.getAllAsync(
       "SELECT * FROM categoria_paragem"
     );
    
     const resultCParada:CategoriaCodigoParada[]|null = await db.getAllAsync(`SELECT * FROM codigo_paragem`);
     // Verificar retorno
-   
+     console.log("00000000000000000000000000")
     if(resultCat == null || resultCParada == null){
       console.log("Nenhuma categoria ou código de paragem encontrado.");
       return null; // Nenhuma categoria encontrada
@@ -103,5 +105,6 @@ export function useCodigoParada() {
     ('MNP-02', 'Troca de óleo', 7),
     ('MNP-03', 'Inspeção de pneus', 7);
   `);
+  
   */
   
